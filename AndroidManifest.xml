@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="com.tarunrs.movies"
+      android:versionName="1.1" android:versionCode="2">
+    <application android:icon="@drawable/icon" android:label="@string/app_name" android:background="#f5f5f5">
+        <activity android:name=".MovieShowtimes"
+                  android:label="@string/app_name"  android:background="#f5f5f5">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+	<activity android:name="SecondScreen"  android:background="#f5f5f5">
+	</activity>
+	
+	<activity android:name="EditPreferences">
+	</activity>
+    </application>
+	<uses-permission android:name="android.permission.INTERNET" />
+
+<uses-sdk android:minSdkVersion="3"></uses-sdk>
+</manifest> 
