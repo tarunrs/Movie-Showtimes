@@ -28,7 +28,6 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -171,11 +170,11 @@ public class MovieShowtimes extends ListActivity implements OnSharedPreferenceCh
 	{
 	   	HttpClient httpClient = new DefaultHttpClient();
     	HttpContext localContext = new BasicHttpContext();
-    	//String url = "http://www.jammm.in/tarunrs/movies?city="+city;
+
     	String encCity = URLEncoder.encode(city);
-    	String url = "http://10.0.2.2:4567/tarunrs/movies?city="+encCity;
+    	//String url = "http://10.0.2.2:18080/movielistings?city="+encCity;
     	
-    	//String url = "http://tarun.appspot.com/movies?city="+encCity;
+    	String url = "http://tarun.appspot.com/movielistings?city="+encCity;
     	HttpGet httpGet = new HttpGet(url);
     	HttpResponse response1 = null;
 		try {
@@ -195,12 +194,11 @@ public class MovieShowtimes extends ListActivity implements OnSharedPreferenceCh
 			response = new JSONObject(res);
 			JSONObject result = response.getJSONObject("result");
 			globalData.loc = result.getString("location");
-			Log.d("asd",globalData.loc);
 			movies = result.getJSONArray("listing");
-			Log.d("asd",movies.toString());
 			saveToFile(res);
 		}
 		catch(JSONException e) {
+			
 			e.printStackTrace();
 			populateFromFile(res);
 			response = new JSONObject(res);

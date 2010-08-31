@@ -4,6 +4,6 @@
   <EditTextPreference
                 android:key="city"
                 android:title="City"
-                android:summary="Change the city"
-                android:dialogTitle="Enter the city" />
+                android:summary="Change city"
+                android:dialogTitle="Enter city name or US Pin Code" />
 </PreferenceScreen>
